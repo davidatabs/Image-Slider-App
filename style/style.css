@@ -1,0 +1,123 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  width: 100vw;
+  height: 100vh;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slider {
+  position: absolute;
+  inset: 60px 200px 60px 60px;
+  background-color: gray;
+  border-radius: 20px;
+}
+
+.slides {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  width: 240px;
+  height: 320px;
+  background: var(--img);
+  background-position: center;
+  background-size: cover;
+  transform: translateY(-50%);
+  transition: 0.5s;
+  border-radius: 20px;
+  box-shadow: 2px 5px 4px rgba(40, 40, 40, 0.5);
+  display: flex;
+}
+
+.slides:nth-child(1),
+.slides:nth-child(2) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: translateY(0);
+  background-size: cover;
+  box-shadow: 2px 5px 4px rgba(40, 40, 40, 0);
+}
+.slides:nth-child(3) {
+  left: calc(50% + 240px);
+  background-size: cover;
+}
+.slides:nth-child(4) {
+  left: calc(50% + 500px);
+  background-size: cover;
+}
+.slides:nth-child(5) {
+  left: calc(50% + 760px);
+  background-size: cover;
+}
+.slides:nth-child(6) {
+  left: calc(50% + 1020px);
+  background-size: cover;
+}
+
+.buttons {
+  position: absolute;
+  top: 93%;
+  right: 50%;
+  display: flex;
+  gap: 12px;
+}
+.buttons span {
+  display: grid;
+  place-items: center;
+  background-color: black;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.prev::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-top: 3px solid white;
+  border-left: 3px solid white;
+  transform: rotate(315deg);
+}
+.next::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-top: 3px solid white;
+  border-right: 3px solid white;
+  transform: rotate(405deg);
+}
+
+.content {
+  align-self: flex-end;
+  color: whitesmoke;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-style: italic;
+  padding: 40px;
+  padding-bottom: 60px;
+  transition: 0.25s;
+  transition-delay: 0s;
+  transform: translateY(40px);
+  opacity: 0;
+  z-index: 1000;
+}
+
+.slides:nth-child(1) .content,
+.slides:nth-child(2) .content {
+  opacity: 1;
+  transform: translateY(0px);
+  transition-delay: 0.5s;
+}
